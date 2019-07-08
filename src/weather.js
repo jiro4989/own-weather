@@ -29,14 +29,14 @@ function fetchWeather() {
 function toWeatherIcon(json) {
   var jsonData = JSON.parse(json);
   var weatherCode = jsonData.weather[0].id;
-  var weather = Math.floor(weatherCode / 100);
-  var weatherIcon = getWeatherIcon(weather);
+  var weatherIcon = getWeatherIcon(weatherCode);
   Logger.log(weatherIcon);
   return weatherIcon;
 }
 
 // 都市の天気データを取得する
-function getWeatherIcon(weather) {
+function getWeatherIcon(weatherCode) {
+  var weather = Math.floor(weatherCode / 100);
   switch (weather) {
     case 2:
     case 3:
