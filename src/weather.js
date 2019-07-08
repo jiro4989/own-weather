@@ -14,6 +14,7 @@ function weatherUserName() {
   if (befName !== userName) {
     var userId = PropertiesService.getScriptProperties().getProperty("TWITTER_USER_ID");
     postTweet('@' + userId + '\n# usermod -l ' + userName + ' ' + befName + '\n# usermod -m -d /home/' + userName + ' ' + userName);
+    dbSheet.getRange('B2').setValue(userName);
   }
 }
 
