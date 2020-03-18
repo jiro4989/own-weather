@@ -7,7 +7,7 @@ function weatherUserName() {
   var dbSheetId = PropertiesService.getScriptProperties().getProperty("DB_SHEET_ID");
   var dbSheet = SpreadsheetApp.openById(dbSheetId);
   var userName = dbSheet.getRange('B1').getValue();
-  postUpdateUserName(userName + weatherIcon + "[" + formatTime(new Date()) + "]");
+  postUpdateUserName(userName + weatherIcon + formatTime(new Date()));
   
   // 名前が変化しているときだけつぶやきで通知する
   var befName = dbSheet.getRange('B2').getValue();
